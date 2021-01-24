@@ -5,10 +5,11 @@ tasks:
     cmds:
       - echo 'Hello World from Task!'
     silent: true
-  
-  enable-os:
+  version:
+    desc: node version
     cmds:
-      - touch Taskfile_{{OS}}.yml
+    - node --version
+    - which node
 
-#includes:
-#  build: ./Taskfile_{{OS}}.yml
+includes:
+  os: ./Taskfile_{{OS}}.yml

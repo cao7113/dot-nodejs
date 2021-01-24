@@ -1,0 +1,13 @@
+# https://taskfile.dev
+version: '3'
+tasks:
+  install-asdf-nodejs:
+    desc: install nodejs by https://github.com/asdf-vm/asdf-nodejs
+    cmds:
+      # Add asdf plugin
+      - asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+      # Import the Node.js team's OpenPGP keys to main keyring
+      - bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
+
+      # NODEJS_ORG_MIRROR - official mirror https://nodejs.org/dist/ is default. If you are in China, you can set it to https://npm.taobao.org/mirrors/node/
+      # NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node/ asdf install nodejs 13.7.0
